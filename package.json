@@ -1,0 +1,19 @@
+{
+  "name": "Full-API",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Devpe007/Full-API.git",
+  "author": "Pedro Henrique Vicente Ferreira <anddev007pe@gmail.com>",
+  "scripts": {
+    "dev": "tsnd src/server.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.12",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
