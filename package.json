@@ -5,11 +5,13 @@
   "repository": "https://github.com/Devpe007/Full-API.git",
   "author": "Pedro Henrique Vicente Ferreira <anddev007pe@gmail.com>",
   "scripts": {
-    "dev": "tsnd src/server.ts"
+    "dev": "tsnd src/server.ts",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js"
   },
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
+    "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.34"
   },
