@@ -21,7 +21,9 @@ export class User {
     @UpdateDateColumn()
     updated_at: Date;
 
-    constructor() {
+    constructor(props: Omit<User, 'id'>, id?: string) {
+        Object.assign(this, props);
+
         if(!this.id) {
             this.id = uuid();
         };
