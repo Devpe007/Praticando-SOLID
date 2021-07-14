@@ -1,5 +1,6 @@
 import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import { ICreateUserRequestDTO } from '../useCases/CreateUser/CreateUserDTO';
 
 @Entity('users')
 export class User {
@@ -21,9 +22,7 @@ export class User {
     @UpdateDateColumn()
     updated_at: Date;
 
-    constructor(props: Omit<User, 'id'>, id?: string) {
-        Object.assign(this, props);
-
+    constructor(props: ICreateUserRequestDTO) {
         if(!this.id) {
             this.id = uuid();
         };
