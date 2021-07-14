@@ -1,5 +1,6 @@
 import { getCustomRepository } from 'typeorm';
-import { User } from '../../entities/User';
+
+import { hash } from 'bcryptjs';
 
 import { IMailProvider } from '../../providers/IMailProvider';
 import { ICreateUserRequestDTO } from './CreateUserDTO';
@@ -22,10 +23,12 @@ export class CreateUserUseCase {
             throw new Error ('User already exists');
         };
 
+        const passwordHash = await hash(data.password, 8);
+
         const user = usersRepository.create({
             name: data.name,
             email: data.email,
-            password: data.password,
+            password: passwordHash,
         });;
 
         await usersRepository.save(user);
