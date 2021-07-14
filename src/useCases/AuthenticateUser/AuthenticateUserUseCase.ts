@@ -1,13 +1,13 @@
 import { getCustomRepository } from "typeorm";
 
-import { UserRepository } from "../../../repositories/UserRespository";
-import { ICreateUserRequestDTO } from "../../../useCases/CreateUser/CreateUserDTO";
+import { UserRepository } from "../../repositories/UserRespository";
+import { IAuthenticateUserDTO } from "./AuthenticateUserDTO";
 
 import { sign } from "jsonwebtoken";
 import { compare } from "bcryptjs";
 
-export class AuthenticateUserService {
-    async execute(data: ICreateUserRequestDTO) {
+export class AuthenticateUserUseCase {
+    async execute(data: IAuthenticateUserDTO) {
         const userRepository = getCustomRepository(UserRepository);
 
         const usersAlreadyExists = await userRepository.findOne({
